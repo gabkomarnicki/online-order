@@ -44,7 +44,7 @@ public class OrderController {
     }
     //create new order
     @PostMapping("/orders")
-    ResponseEntity<?> neworder(@RequestBody Order newOrder) {
+    ResponseEntity<?> newOrder(@RequestBody Order newOrder) {
 
         EntityModel<Order> entityModel = assembler.toModel(repository.save(newOrder));
 
