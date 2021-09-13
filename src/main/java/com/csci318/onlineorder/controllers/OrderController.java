@@ -29,14 +29,6 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    private final OrderRepository repository;
-    private final OrderModelAssembler assembler;
-
-    //order controller
-    OrderController(OrderRepository repository, OrderModelAssembler assembler) {
-        this.repository = repository;
-        this.assembler = assembler;
-    }
     //find all orders
     @GetMapping("/orders")
     CollectionModel<EntityModel<Order>> all() {
@@ -62,7 +54,7 @@ public class OrderController {
     }
 
     //delete order by id
-    @DeleteMapping("/orders/{id{")
+    @DeleteMapping("/orders/{id}")
     void deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);
     }
