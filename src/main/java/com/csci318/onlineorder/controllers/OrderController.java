@@ -30,8 +30,8 @@ public class OrderController {
     OrderService orderService;
 
     private final OrderRepository repository;
-
     private final OrderModelAssembler assembler;
+
     //order controller
     OrderController(OrderRepository repository, OrderModelAssembler assembler) {
         this.repository = repository;
@@ -40,32 +40,49 @@ public class OrderController {
     //find all orders
     @GetMapping("/orders")
     CollectionModel<EntityModel<Order>> all() {
-
-        List<EntityModel<Order>> orders = repository.findAll().stream()
-                .map(assembler::toModel)
-                .collect(Collectors.toList());
-
-        return CollectionModel.of(orders, linkTo(methodOn(OrderController.class).all()).withSelfRel());
+        return orderService.all();
     }
+
+//    @GetMapping("/orders")
+//    CollectionModel<EntityModel<Order>> all() {
+//
+//        List<EntityModel<Order>> orders = repository.findAll().stream()
+//                .map(assembler::toModel)
+//                .collect(Collectors.toList());
+//
+//        return CollectionModel.of(orders, linkTo(methodOn(OrderController.class).all()).withSelfRel());
+//    }
     //create new order
     @PostMapping("/orders")
-    ResponseEntity<?> newOrder(@RequestBody Order newOrder) {
-
-        EntityModel<Order> entityModel = assembler.toModel(repository.save(newOrder));
-
-        return ResponseEntity
-                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel);
+    Order newOrder(@RequestBody Order newOrder) {
+        return orderService.newOrder(newOrder);
     }
+
+//    @PostMapping("/orders")
+//    ResponseEntity<?> newOrder(@RequestBody Order newOrder) {
+//
+//        EntityModel<Order> entityModel = assembler.toModel(repository.save(newOrder));
+//
+//        return ResponseEntity
+//                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+//                .body(entityModel);
+//    }
+
     //find order by id
     @GetMapping("/orders/{id}")
     EntityModel<Order> one(@PathVariable Long id) {
-
-        Order order = repository.findById(id)
-                .orElseThrow(() -> new OrderNotFoundException(id));
-
-        return assembler.toModel(order);
+        return orderService.one(id);
     }
+
+//    @GetMapping("/orders/{id}")
+//    EntityModel<Order> one(@PathVariable Long id) {
+//
+//        Order order = repository.findById(id)
+//                .orElseThrow(() -> new OrderNotFoundException(id));
+//
+//        return assembler.toModel(order);
+//    }
+
     //update order by id
     @PutMapping("/orders/{id}")
     Order replaceOrder(@RequestBody Order newOrder, @PathVariable Long id) {
