@@ -14,10 +14,9 @@ import com.csci318.onlineorder.controllers.OrderNotFoundException;
 import com.csci318.onlineorder.controllers.OrderModelAssembler;
 import com.csci318.onlineorder.models.Order;
 import com.csci318.onlineorder.repositories.OrderRepository;
-import com.csci318.onlineorder.services.OrderServiceI;
 
 @Service
-public class OrderService implements OrderServiceI
+public class OrderService implements OrderServiceIF
 {
     private final OrderRepository orderRepository;
     private final OrderModelAssembler assembler;
