@@ -5,7 +5,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 
-public interface OrderServiceIF {
+public interface OrderService {
 
     public abstract CollectionModel<EntityModel<Order>> all();
     public abstract ResponseEntity<?> newOrder(Order newOrder);
