@@ -72,7 +72,7 @@ public class OrderService implements OrderServiceIF
 
     //delete order record
     @Override
-    public void deleteProduct(Long id) {
+    public void deleteOrder(Long id) {
         // TODO Auto-generated method stub
         orderRepository.deleteById(id);
     }
