@@ -3,6 +3,7 @@ package com.csci318.onlineorder.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -17,12 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.csci318.onlineorder.models.*;
 import com.csci318.onlineorder.repositories.*;
+import com.csci318.onlineorder.services.OrderService;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 public class OrderController {
+
+    @Autowired
+    OrderService orderService;
 
     private final OrderRepository repository;
 
@@ -63,32 +68,42 @@ public class OrderController {
     }
     //update order by id
     @PutMapping("/orders/{id}")
-    ResponseEntity<?> replaceOrder(@RequestBody Order newOrder, @PathVariable Long id) {
-
-        Order updatedOrder = repository.findById(id)
-                .map(order -> {
-                    order.setSupplier(newOrder.getSupplier());
-                    order.setProduct(newOrder.getProduct());
-                    order.setQuantity(newOrder.getQuantity());
-                    return repository.save(order);
-                })
-                .orElseGet(() -> {
-                    newOrder.setId(id);
-                    return repository.save(newOrder);
-                });
-
-        EntityModel<Order> entityModel = assembler.toModel(updatedOrder);
-
-        return ResponseEntity
-                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel);
+    Order replaceOrder(@RequestBody Order newOrder, @PathVariable Long id) {
+        return orderService.replaceOrder(newOrder, id);
     }
+
+//    @PutMapping("/orders/{id}")
+//    ResponseEntity<?> replaceOrder(@RequestBody Order newOrder, @PathVariable Long id) {
+//
+//        Order updatedOrder = repository.findById(id)
+//                .map(order -> {
+//                    order.setSupplier(newOrder.getSupplier());
+//                    order.setProduct(newOrder.getProduct());
+//                    order.setQuantity(newOrder.getQuantity());
+//                    return repository.save(order);
+//                })
+//                .orElseGet(() -> {
+//                    newOrder.setId(id);
+//                    return repository.save(newOrder);
+//                });
+//
+//        EntityModel<Order> entityModel = assembler.toModel(updatedOrder);
+//
+//        return ResponseEntity
+//                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+//                .body(entityModel);
+//    }
     //delete order by id
-    @DeleteMapping("/orders/{id}")
-    ResponseEntity<?> deleteOrder(@PathVariable Long id) {
-
-        repository.deleteById(id);
-
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/orders/{id{")
+    void deleteOrder(@PathVariable Long id) {
+        orderService.deleteOrder(id);
     }
+
+//    @DeleteMapping("/orders/{id}")
+//    ResponseEntity<?> deleteOrder(@PathVariable Long id) {
+//
+//        repository.deleteById(id);
+//
+//        return ResponseEntity.noContent().build();
+//    }
 }
