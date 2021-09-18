@@ -6,13 +6,13 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.csci318.onlineorder.models.Orders;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Service;
 
 import com.csci318.onlineorder.controllers.OrderNotFoundException;
 import com.csci318.onlineorder.controllers.OrderModelAssembler;
-import com.csci318.onlineorder.models.Order;
 import com.csci318.onlineorder.repositories.OrderRepository;
 
 @Service
@@ -28,9 +28,9 @@ public class OrderService implements OrderServiceIF
 
     //find all orders
     @Override
-    public CollectionModel<EntityModel<Order>> all() {
+    public CollectionModel<EntityModel<Orders>> all() {
         // TODO Auto-generated method stub
-        List<EntityModel<Order>> orders = orderRepository.findAll().stream()
+        List<EntityModel<Orders>> orders = orderRepository.findAll().stream()
                 .map(assembler::toModel)
                 .collect(Collectors.toList());
 
@@ -40,33 +40,33 @@ public class OrderService implements OrderServiceIF
 
     //create a new order
     @Override
-    public Order newOrder(Order newOrder) {
+    public Orders newOrder(Orders newOrders) {
         // TODO Auto-generated method stub
-        return orderRepository.save(newOrder);
+        return orderRepository.save(newOrders);
     }
 
     //find order information by id
     @Override
-    public EntityModel<Order> one(Long id) {
+    public EntityModel<Orders> one(Long id) {
         // TODO Auto-generated method stub
-        Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
-        return assembler.toModel(order);
+        Orders orders = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
+        return assembler.toModel(orders);
     }
 
     //update order
     @Override
-    public Order replaceOrder(Order newOrder, Long id) {
+    public Orders replaceOrder(Orders newOrders, Long id) {
         // TODO Auto-generated method stub
         return orderRepository.findById(id)
                 .map(order -> {
-                    order.setSupplier(newOrder.getSupplier());
-                    order.setProduct(newOrder.getProduct());
-                    order.setQuantity(newOrder.getQuantity());
+                    order.setSupplier(newOrders.getSupplier());
+                    order.setProduct(newOrders.getProduct());
+                    order.setQuantity(newOrders.getQuantity());
                     return orderRepository.save(order);
                 })
                 .orElseGet(() -> {
-                    newOrder.setId(id);
-                    return orderRepository.save(newOrder);
+                    newOrders.setId(id);
+                    return orderRepository.save(newOrders);
                 });
     }
 

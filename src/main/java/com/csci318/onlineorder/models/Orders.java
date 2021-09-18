@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Order {
+public class Orders {
 
     @Id
     @GeneratedValue
@@ -15,10 +15,10 @@ public class Order {
     private String product;
     private String quantity;
 
-    public Order() {
+    public Orders() {
     }
 
-    public Order(String supplier, String product, String quantity) {
+    public Orders(String supplier, String product, String quantity) {
         this.supplier = supplier;
         this.product = product;
         this.quantity = quantity;
@@ -58,7 +58,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orders{" +
                 "id=" + id +
                 ", supplier='" + supplier + '\'' +
                 ", product='" + product + '\'' +
@@ -71,13 +71,13 @@ public class Order {
 
         if (this == o)
             return true;
-        if (!(o instanceof Order))
+        if (!(o instanceof Orders))
             return false;
-        Order Order = (Order) o;
-        return Objects.equals(this.id, Order.id)
-                && Objects.equals(this.supplier, Order.supplier)
-                && Objects.equals(this.product, Order.product)
-                && Objects.equals(this.quantity, Order.quantity);
+        Orders Orders = (Orders) o;
+        return Objects.equals(this.id, Orders.id)
+                && Objects.equals(this.supplier, Orders.supplier)
+                && Objects.equals(this.product, Orders.product)
+                && Objects.equals(this.quantity, Orders.quantity);
     }
 
     @Override
