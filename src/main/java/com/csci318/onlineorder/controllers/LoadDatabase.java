@@ -19,7 +19,7 @@ public class LoadDatabase {
             log.info("Loading... " + orderRepository.save(new Orders("ABC Supplier", "microwave", "20")));
             log.info("Loading... " + orderRepository.save(new Orders("FedEx", "microprocessor", "90")));
             log.info("Loading..." + orderRepository.save(new Orders("ACME Delivery", "dishwasher", "70")));
-            orderRepository.findAll().forEach(detail -> log.info("Preloaded: " + detail));
+//            orderRepository.findAll().forEach(detail -> log.info("Preloaded: " + detail));
         };
     }
 }
