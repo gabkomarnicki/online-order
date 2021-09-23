@@ -15,7 +15,7 @@ public class OrdersEvent {
     @Column
     private String supplier;
 
-    @Column(name = "supplier")
+    @Column(name = "product")
     private String supplierRecord;
 
     public OrdersEvent() {
