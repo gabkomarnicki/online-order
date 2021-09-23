@@ -14,10 +14,10 @@ public class Orders {
     private String supplier;
     private String product;
     private String quantity;
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    @JsonIgnore
-    private Customer customer;
+//    @OneToOne
+//    @JoinColumn(name = "customer_id")
+//    @JsonIgnore
+//    private Customer customer;
 
     public Orders() {
     }
@@ -26,7 +26,7 @@ public class Orders {
         this.supplier = supplier;
         this.product = product;
         this.quantity = quantity;
-        this.customer = null;
+//        this.customer = null;
     }
 
     public Long getId() {
@@ -61,13 +61,13 @@ public class Orders {
         this.quantity = quantity;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
     @Override
     public String toString() {
@@ -76,7 +76,7 @@ public class Orders {
                 ", supplier='" + supplier + '\'' +
                 ", product='" + product + '\'' +
                 ", quantity='" + quantity + '\'' +
-                ", customer='" + customer + '\'' +
+//                ", customer='" + customer + '\'' +
                 '}';
     }
 
