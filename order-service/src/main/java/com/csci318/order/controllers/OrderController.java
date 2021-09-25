@@ -3,6 +3,7 @@ package com.csci318.order.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.csci318.order.models.*;
 import com.csci318.order.services.OrderService;
+
+import javax.validation.Valid;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
@@ -29,9 +32,14 @@ public class OrderController {
     }
 
     //create new order
+//    @PostMapping("/orders")
+//    Orders createOrder(@RequestBody Orders createOrders) {
+//        return orderService.createOrder(createOrders);
+//    }
+
     @PostMapping("/orders")
-    Orders createOrder(@RequestBody Orders createOrders) {
-        return orderService.createOrder(createOrders);
+    ResponseEntity<String> createOrder(@Valid @RequestBody Orders createOrders) {
+        return ResponseEntity.ok("Order valid");
     }
 
     //find order by id
