@@ -1,4 +1,4 @@
-package com.csci318.onlineorder.models;
+package com.csci318.onlinestore.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties

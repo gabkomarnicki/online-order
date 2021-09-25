@@ -1,4 +1,4 @@
-package com.csci318.onlineorder.models;
+package com.csci318.onlinestore.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,7 +1,7 @@
-package com.csci318.onlineorder.controllers;
+package com.csci318.onlinestore.controllers;
 
-import com.csci318.onlineorder.models.Orders;
-import com.csci318.onlineorder.repositories.OrderRepository;
+import com.csci318.onlinestore.models.Orders;
+import com.csci318.onlinestore.repositories.OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

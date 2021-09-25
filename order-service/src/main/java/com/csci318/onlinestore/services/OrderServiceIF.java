@@ -1,6 +1,6 @@
-package com.csci318.onlineorder.services;
+package com.csci318.onlinestore.services;
 
-import com.csci318.onlineorder.models.Orders;
+import com.csci318.onlinestore.models.Orders;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 

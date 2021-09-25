@@ -1,4 +1,4 @@
-package com.csci318.onlineorder.controllers;
+package com.csci318.onlinestore.controllers;
 
 @SuppressWarnings("serial")
 public class OrderNotFoundException extends RuntimeException {

@@ -1,7 +1,7 @@
-package com.csci318.onlineorder.services;
+package com.csci318.onlinestore.services;
 
-import com.csci318.onlineorder.models.Orders;
-import com.csci318.onlineorder.repositories.OrderRepository;
+import com.csci318.onlinestore.models.Orders;
+import com.csci318.onlinestore.repositories.OrderRepository;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 

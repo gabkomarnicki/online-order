@@ -1,4 +1,4 @@
-package com.csci318.onlineorder.services;
+package com.csci318.onlinestore.services;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -6,14 +6,14 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.csci318.onlineorder.models.Orders;
+import com.csci318.onlinestore.models.Orders;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Service;
 
-import com.csci318.onlineorder.controllers.OrderNotFoundException;
-import com.csci318.onlineorder.controllers.OrderModelAssembler;
-import com.csci318.onlineorder.repositories.OrderRepository;
+import com.csci318.onlinestore.controllers.OrderNotFoundException;
+import com.csci318.onlinestore.controllers.OrderModelAssembler;
+import com.csci318.onlinestore.repositories.OrderRepository;
 
 @Service
 public class OrderService implements OrderServiceIF
