@@ -30,8 +30,8 @@ public class OrderController {
 
     //create new order
     @PostMapping("/orders")
-    Orders newOrder(@RequestBody Orders newOrders) {
-        return orderService.newOrder(newOrders);
+    Orders createOrder(@RequestBody Orders createOrders) {
+        return orderService.createOrder(createOrders);
     }
 
     //find order by id
@@ -42,8 +42,8 @@ public class OrderController {
 
     //update order by id
     @PutMapping("/orders/{id}")
-    Orders replaceOrder(@RequestBody Orders newOrders, @PathVariable Long id) {
-        return orderService.replaceOrder(newOrders, id);
+    Orders replaceOrder(@RequestBody Orders createOrders, @PathVariable Long id) {
+        return orderService.replaceOrder(createOrders, id);
     }
 
     //delete order by id

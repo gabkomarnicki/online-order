@@ -40,9 +40,9 @@ public class OrderService implements OrderServiceIF
 
     //create a new order
     @Override
-    public Orders newOrder(Orders newOrders) {
+    public Orders createOrder(Orders createOrders) {
         // TODO Auto-generated method stub
-        return orderRepository.save(newOrders);
+        return orderRepository.save(createOrders);
     }
 
     //find order information by id
@@ -55,18 +55,18 @@ public class OrderService implements OrderServiceIF
 
     //update order
     @Override
-    public Orders replaceOrder(Orders newOrders, Long id) {
+    public Orders replaceOrder(Orders createOrders, Long id) {
         // TODO Auto-generated method stub
         return orderRepository.findById(id)
                 .map(order -> {
-                    order.setSupplier(newOrders.getSupplier());
-                    order.setProduct(newOrders.getProduct());
-                    order.setQuantity(newOrders.getQuantity());
+                    order.setSupplier(createOrders.getSupplier());
+                    order.setProduct(createOrders.getProduct());
+                    order.setQuantity(createOrders.getQuantity());
                     return orderRepository.save(order);
                 })
                 .orElseGet(() -> {
-                    newOrders.setId(id);
-                    return orderRepository.save(newOrders);
+                    createOrders.setId(id);
+                    return orderRepository.save(createOrders);
                 });
     }
 
