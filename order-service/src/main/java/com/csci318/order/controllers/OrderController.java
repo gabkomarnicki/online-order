@@ -38,6 +38,7 @@ public class OrderController {
 //        return orderService.createOrder(createOrders);
 //    }
 
+    // create new order with validation
     @PostMapping("/orders")
     ResponseEntity<String> createOrder(@Valid @RequestBody Orders createOrders) {
         return ResponseEntity.ok("Order valid");
