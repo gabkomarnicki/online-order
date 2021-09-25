@@ -1,6 +1,5 @@
 package com.csci318.onlineorder.services;
 
-import com.csci318.onlineorder.models.OrdersEvent;
 import com.csci318.onlineorder.models.Orders;
 import com.csci318.onlineorder.repositories.OrderRepository;
 import org.springframework.context.event.EventListener;
