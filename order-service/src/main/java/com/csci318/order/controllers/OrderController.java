@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.csci318.order.models.*;
 import com.csci318.order.services.OrderService;
 
-import javax.validation.Valid;
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
