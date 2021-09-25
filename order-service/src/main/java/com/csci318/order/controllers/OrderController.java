@@ -31,16 +31,16 @@ public class OrderController {
     }
 
     //create new order
-//    @PostMapping("/orders")
-//    Orders createOrder(@RequestBody Orders createOrders) {
-//        return orderService.createOrder(createOrders);
-//    }
+    @PostMapping("/orders")
+    Orders createOrder(@RequestBody Orders createOrders) {
+        return orderService.createOrder(createOrders);
+    }
 
     // create new order with validation
-    @PostMapping("/orders")
-    ResponseEntity<String> createOrder(@Valid @RequestBody Orders createOrders) {
-        return ResponseEntity.ok("Order valid");
-    }
+//    @PostMapping("/orders")
+//    ResponseEntity<String> createOrder(@Valid @RequestBody Orders createOrders) {
+////        return ResponseEntity.ok("Order valid");
+//    }
 
     //find order by id
     @GetMapping("/orders/{id}")
