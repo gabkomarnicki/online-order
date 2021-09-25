@@ -1,6 +1,6 @@
-package com.csci318.onlinestore;
+package com.csci318.order;
 
-import com.csci318.onlinestore.models.OrdersValue;
+import com.csci318.order.models.OrdersValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

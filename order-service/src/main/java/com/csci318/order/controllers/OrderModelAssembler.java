@@ -1,8 +1,8 @@
-package com.csci318.onlinestore.controllers;
+package com.csci318.order.controllers;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-import com.csci318.onlinestore.models.Orders;
+import com.csci318.order.models.Orders;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;

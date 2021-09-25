@@ -1,4 +1,4 @@
-package com.csci318.onlinestore.controllers;
+package com.csci318.order.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.csci318.onlinestore.models.*;
-import com.csci318.onlinestore.services.OrderService;
+import com.csci318.order.models.*;
+import com.csci318.order.services.OrderService;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
